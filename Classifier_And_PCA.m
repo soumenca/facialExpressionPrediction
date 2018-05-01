@@ -64,6 +64,7 @@ function [yd, mse] = lmsFun(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(d)) * 100;
     fprintf("The Accuracy of prediction using LMS is %0.4f\n", accuracy);
+    cnfmat = confusionmat(d, yd_D)
 end
 
 %% Classification .............MCC......
@@ -110,6 +111,7 @@ function [yd, mse] = mccFun(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(d)) * 100;
     fprintf("The Accuracy of prediction using MCC is %0.4f\n", accuracy);
+    cnfmat = confusionmat(d, yd_D)
 end
 
 %% Classification .............KLMS......
@@ -160,6 +162,7 @@ function [yd_test, mse] = klmsFun(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(d)) * 100;
     fprintf("The Accuracy of prediction using KLMS is %0.4f\n", accuracy);
+    cnfmat = confusionmat(d, yd_D)
 end
 
 %% Classification .............KMC......
@@ -211,6 +214,7 @@ function [yd_test, mse] = kmcFun(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(d)) * 100;
     fprintf("The Accuracy of prediction using KMC is %0.4f\n", accuracy);
+    cnfmat = confusionmat(d, yd_D)
 end
 
 %% Classification ................SVM.........
@@ -236,7 +240,7 @@ function [] = funSVM(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(testClass)) * 100;
     fprintf("The Accuracy of prediction using SVM is %0.4f\n", accuracy);
-    %cnfmat = confusionmat(testClass, predictClass)
+    cnfmat = confusionmat(testClass, predictClass)
 end
 
 %% Classification .............KNN.......
@@ -259,6 +263,7 @@ function [] = funKNN(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(testClass)) * 100;
     fprintf("The Accuracy of prediction using KNN is %0.4f\n", accuracy);
+    cnfmat = confusionmat(testClass, predictClass)
     
 end
 
@@ -285,7 +290,7 @@ function [] = funPNN(reducedData)
     true = sum(results == 1);
     accuracy = (true / length(testClass)) * 100;
     fprintf("The Accuracy of prediction using PNN is %0.4f\n", accuracy);
-    
+    cnfmat = confusionmat(testClass, predictClass)
 end
 
 
