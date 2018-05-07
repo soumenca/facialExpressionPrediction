@@ -1,4 +1,7 @@
-%Mallab version: R2017b
+% Mallab version: R2017b
+% Soumen Ghosh
+% IIIT Sri City, Chittoor, AP, India
+% https://sites.google.com/site/soumenca/
 
 clc;
 clear all;
@@ -14,11 +17,12 @@ for k = 1:length(imgSets)
         end
         [m, n] = size(Input_image);
         F = [];
+        % Dividing the image into 8*8 block and applying LBP to each block
         m1 = floor(m/8) * 8;
         n1 = floor(n/8) * 8;
         for i = 1 : floor(m/8) : m1
             for j = 1 : floor(n/8) : n1
-                lbp_feature = extractLBPFeatures(Input_image(i:floor(i+m/8-1), j:floor(j+n/8-1)));
+                lbp_feature = extractLBPFeatures(Input_image(i:floor(i+m/8-1), j:floor(j+n/8-1))); %LBP feature
                 F = horzcat(F, lbp_feature);
             end
         end
