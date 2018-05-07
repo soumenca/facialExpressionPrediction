@@ -1,4 +1,8 @@
-%Mallab version: R2017b
+% Mallab version: R2017b
+% Soumen Ghosh
+% IIIT Sri City, Chittoor, AP, India
+% https://sites.google.com/site/soumenca/
+
 
 clc;
 clear all;
@@ -21,7 +25,7 @@ for x = 50:50:300
         
 end
 
-%% Classification .............LMS......
+%% Classification .............Least Mean Squares (LMS)......
 
 function [yd, mse] = lmsFun(reducedData) 
     [fr, noFeature] = size(reducedData);
@@ -67,7 +71,7 @@ function [yd, mse] = lmsFun(reducedData)
     cnfmat = confusionmat(d, yd_D)
 end
 
-%% Classification .............MCC......
+%% Classification .............Maximum Correntropy Criterion (MCC)......
 
 function [yd, mse] = mccFun(reducedData) 
     [fr, noFeature] = size(reducedData);
